@@ -6,7 +6,7 @@ stages {
       stage('deploy'){
         steps {
           echo "-------------------------------Deployment started---------------------------"
-          sh './deploy.sh'
+          sh 'who am i'
           echo "-------------------------------Deployment completed---------------------------"
       }
       }
