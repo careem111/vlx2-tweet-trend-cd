@@ -1,0 +1,14 @@
+pipeline {   
+   agent any
+
+
+stages {
+      stage('deploy'){
+        steps {
+          echo "-------------------------------Deployment started---------------------------"
+          sh './deploy.sh'
+          echo "-------------------------------Deployment completed---------------------------"
+      }
+      }
+  }
+}
