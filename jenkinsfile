@@ -11,7 +11,7 @@ pipeline {
           serviceAccount: jenkins-admin
           containers:
           - name: build-agent
-            image: careem785/careem785/vlx-cd:latest
+            image: careem785/vlx-cd:latest
             command: 
              - cat
             tty: true
