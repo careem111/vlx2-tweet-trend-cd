@@ -9,7 +9,7 @@ pipeline {
         spec:
           containers:
           - name: build-agent
-            image: careem785/jenkins-build-agent:2.0
+            image: careem785/vlx-cd:latest
             command: 
              - cat
             tty: true
