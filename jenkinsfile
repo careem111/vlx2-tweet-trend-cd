@@ -1,14 +1,39 @@
 pipeline {   
-   agent any
+   agent {
+     kubernetes {
+      yaml '''
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: mypod
+        spec:
+          containers:
+          - name: build-agent
+            image: careem785/jenkins-build-agent:2.0
+            command: 
+             - cat
+            tty: true
+            volumeMounts:
+            - name: dockersock
+              mountPath: /var/run/docker.sock
+          volumes:
+          - name: dockersock
+            hostPath:
+              path: /var/run/docker.sock  
+      '''
+        }
+    }
 
 
 stages {
       stage('deploy'){
         steps {
+          container('build-agent'){
           echo "-------------------------------Deployment started---------------------------"
-          sh 'whoami'
+          sh './deploy.sh'
           echo "-------------------------------Deployment completed---------------------------"
-      }
+          }
+        }
       }
   }
 }
