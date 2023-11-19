@@ -19,16 +19,20 @@ pipeline {
         }
     }
 
-
-stages {
-      stage('deploy'){
-        steps {
+ stages {     
+      stage('Helm Chart'){
+        steps{
           container('build-agent'){
-          echo "-------------------------------Deployment started---------------------------"
-          sh './deploy.sh'
-          echo "-------------------------------Deployment completed---------------------------"
+              dir('Helm/ttrend-cd') {
+                withCredentials([usernamePassword(credentialsId: 'jfrog-cred', usernameVariable: 'username', passwordVariable: 'password')]){
+                      sh 'helm repo add helm-local  https://krm.jfrog.io/artifactory/valaxy-hello-helm-local/ --username $username --password $password'
+                      sh "helm repo update"
+                      sh "helm install tweet-trend https://vlx.jfrog.io/artifactory/vlx2-helm-local/tweet-cd-{}.tgz  -f values.yaml"
+                      sh "helm list -a "
+                  }
+                }
+             }
           }
-        }
       }
-  }
+   }
 }
