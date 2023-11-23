@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/ssl-redirect: "false"
+    kubernetes.io/ingress.class: vlx-tweet-traefik
+  generation: 1
+  name: ingress-tweet
+  namespace: test
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tweet-cd-svc
+            port:
+              number: 8000
