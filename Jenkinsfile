@@ -35,16 +35,16 @@ pipeline {
           }
       }
 
-    stage('Deploy Ingress'){
-        steps {
-          container('build-agent'){
-            dir('ingress') {
-          echo "-------------------------------Ingress Deployment started---------------------------"
-          sh './ingress.sh'
-          echo "-------------------------------Ingress Deployment completed---------------------------"
-            }
-          }
-        }
-      }
+    // stage('Deploy Ingress'){
+    //     steps {
+    //       container('build-agent'){
+    //         dir('ingress') {
+    //       echo "-------------------------------Ingress Deployment started---------------------------"
+    //       sh './ingress.sh'
+    //       echo "-------------------------------Ingress Deployment completed---------------------------"
+    //         }
+    //       }
+    //     }
+    //   }
    }
 }
