@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    ingress.kubernetes.io/ssl-redirect: "false"
-    kubernetes.io/ingress.class: vlx-tweet-traefik
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.class: traefik
   generation: 1
   name: ingress-tweet
   namespace: test

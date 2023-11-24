@@ -8,7 +8,7 @@ image:
   repository: vlx.jfrog.io/vlx2-docker-local/ttrend
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 2.1.5
+  tag: 2.1.8
 
 jfrogcreds: ewoJImF1dGhzIjogewoJCSJ2bHguamZyb2cuaW8iOiB7CgkJCSJhdXRoIjogIlpXMWhiblZoYkM1cVlYRjFZWEpwUUdSbFpYSmpjbVZsYTNNdWIzSm5Pa0Z6WkdaQU1USXpORFU9IgoJCX0KCX0KfQ==
 
